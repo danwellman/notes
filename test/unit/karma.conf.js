@@ -29,11 +29,11 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'app/js/vendor/angular.min.js',
+      'app/vendor/angular.min.js',
       'test/angular-mocks.js',
       'app/js/**/*.js',
       'node_modules/jasmine-sinon/lib/jasmine-sinon.js',
-      'test/app/js/**/*.spec.js'
+      'test/unit/app/js/**/*.spec.js'
     ],
 
 

@@ -19,13 +19,12 @@ module.exports = function (grunt) {
     }
 
     grunt.util._.extend(config, loadConfig('./grunt-tasks/'));
-
     grunt.initConfig(config);
 
     require('load-grunt-tasks')(grunt);
 
-    grunt.registerTask('scss', ['sass:dist']);
+    grunt.registerTask('scss', ['sass']);
     grunt.registerTask('lint', ['jshint']);
-    grunt.registerTask('test', ['clean', 'karma']);
+    grunt.registerTask('test', ['clean:coverage', 'karma']);
 
 };

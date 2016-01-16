@@ -1,3 +1,5 @@
 ﻿module.exports = {
-    coverage: ['test/unit/coverage']
+    coverage: {
+        src: ['test/unit/coverage']
+    }
 };
