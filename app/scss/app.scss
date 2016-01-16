@@ -1,0 +1,176 @@
+﻿html, body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+[data-ng-controller] {
+    height: 100%;
+}
+
+section {
+    height: 100%;
+}
+
+header {
+    height: 150px;
+    border-bottom: 2px solid black;
+    position: relative;
+
+    h1 {
+        margin: 0;
+        padding: 20px;
+        float: left;
+        font: 36px sans-serif;
+    }
+
+    .toolbar {
+        position: absolute;
+        left: 275px;
+        bottom: 20px;
+    }
+
+    button {
+        margin-right: 10px;
+    }
+}
+
+.logo {
+    width: 250px;
+    height: 100%;
+    border-right: 2px solid black;
+    position: relative;
+    float: left;
+
+    &:before {
+        content: 'n';
+        position: absolute;
+        top: calc(50% - 60px);
+        left: calc(50% - 60px);
+        font-size: 9rem;
+        font-style: italic;
+        line-height: 5.5rem;
+        border: 2px solid black;
+        border-radius: 50%;
+        display: block;
+        width: 120px;
+        height: 120px;
+        text-align: center;
+    }
+}
+
+aside {
+    width: 250px;
+    min-height: calc(100% - 152px);
+    float: left;
+    border-right: 2px solid black;
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+
+    li {
+        min-height: 40px;
+        border-bottom: 2px solid black;
+    }
+
+    a {
+        display: block;
+        padding: 15px 25px;
+        line-height: 40px;
+        text-decoration: none;
+        color: black;
+
+        &:hover {
+            background-color: #f3f3f3;
+        }
+
+        &.active {
+            background-color: #e2e2e2;
+            cursor: default;
+        }
+    }
+
+    p {
+        padding-left: 20px;
+    }
+}
+
+main {
+    float: left;
+    height: calc(100% - 152px);
+    width: calc(100% - 252px);
+
+    form {
+        height: 100%;
+    }
+
+    textarea {
+        margin: 20px;
+        width: calc(96% - 44px);
+        height: calc(96% - 79px);
+        border: 2px solid black;
+        resize: none;
+        padding: 2%;
+
+        &:focus {
+            border-color: #16B4FF;
+        }
+    }
+}
+
+modal {
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,.5);
+    }
+
+    .modal {
+        width: 500px;
+        height: 36px;
+        padding: 20px;
+        position: relative;
+        left: calc(50% - 250px);
+        top: calc(50% - 25px);
+        background-color: #fff;
+        box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    fieldset {
+        margin: 0;
+        padding: 0;
+        border: none;
+    }
+
+    legend {
+        display: none;
+    }
+
+    input {
+        width: 424px;
+        height: 30px;
+        border: 1px solid #cecece;
+        border-radius: 3px;
+        padding: 2px 5px;
+        margin-right: 10px;
+    }
+
+    button {
+        width: 50px;
+        height: 36px;
+        border-radius: 3px;
+        border: 1px solid #cecece;
+        background-color: #ccc;
+
+        &:hover {
+            background-color: #eee;
+            cursor: pointer;
+        }
+    }
+}

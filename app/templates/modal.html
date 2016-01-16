@@ -1,0 +1,12 @@
+﻿<div class="overlay" data-ng-if="showModal" data-ng-click="hideModal($event)">
+    <div class="modal">
+        <form>
+            <fieldset>
+                <legend>Note Title form</legend>
+
+                <input id="title" data-ng-model="currentNote.title" placeholder="Note title" />
+                <button data-ng-click="saveNote()">Save</button>
+            </fieldset>
+        </form>
+    </div>
+</div>

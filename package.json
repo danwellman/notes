@@ -1,0 +1,41 @@
+{
+  "name": "notes",
+  "version": "1.0.0",
+  "description": "A simple web app to manage notes",
+  "main": "js/app.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danwellman/notes.git"
+  },
+  "keywords": [
+    "JavaScript",
+    "Notes"
+  ],
+  "author": "Dan Wellman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/danwellman/notes/issues"
+  },
+  "homepage": "https://github.com/danwellman/notes#readme",
+  "devDependencies": {
+    "glob": "^6.0.3",
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "^0.7.0",
+    "grunt-contrib-jshint": "^0.11.3",
+    "grunt-karma": "^0.12.1",
+    "grunt-sass": "^1.1.0",
+    "jasmine-core": "^2.4.1",
+    "jasmine-sinon": "^0.4.0",
+    "karma": "^0.13.19",
+    "karma-coverage": "^0.5.3",
+    "karma-jasmine": "^0.3.6",
+    "karma-phantomjs-launcher": "^0.2.3",
+    "karma-sinon": "^1.0.4",
+    "load-grunt-tasks": "^3.4.0",
+    "phantomjs": "^1.9.19",
+    "sinon": "^1.17.2"
+  }
+}

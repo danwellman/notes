@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Notes</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="shortcut icon" type="image/png" href="favicon.ico" />
+</head>
+<body data-ng-app="notes">
+    <div data-ng-controller="notesController">
+        <section data-ng-if="localStorageSupported">
+            <header>
+                <div class="logo"></div>
+                <h1>Notes app</h1>
+                <div class="toolbar">
+                    <button data-ng-disabled="!edited" data-ng-click="preSaveNote()">Save note</button>
+                    <button data-ng-click="newNote()">New note</button>
+                    <button data-ng-click="deleteNote($event)">Delete note</button>
+                </div>
+            </header>
+
+            <aside>
+                <ul data-ng-if="notes.length">
+                    <li data-ng-repeat="note in notes">
+                        <a href="javascript:void(0)" id="{{ note.id }}" data-ng-class="{ active: $index === 0 }" data-ng-click="openNote($event)">{{ note.title }}</a>
+                    </li>
+                </ul>
+
+                <p data-ng-if="!notes.length">You don't have any notes yet!</p>
+            </aside>
+
+            <main>
+                <form>
+                    <textarea ng-model="currentNote.content" enable-save-on-edit></textarea>
+                </form>
+            </main>
+        </section>
+
+        <modal></modal>
+
+        <section data-ng-if="!localStorageSupported">
+            <h1>Sorry, your browser does not support localStorage. Please upgrade your browser to use Notes</h1>
+        </section>
+    </div>
+
+    <script src="vendor/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/services/localStorage.js"></script>
+    <script src="js/services/uuid.js"></script>
+    <script src="js/controllers/notes.js"></script>
+    <script src="js/directives/enableSaveOnEdit.js"></script>
+    <script src="js/directives/modal.js"></script>
+</body>
+</html>
