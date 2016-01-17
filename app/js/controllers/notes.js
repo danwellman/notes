@@ -88,10 +88,12 @@
                 var hash = $scope.currentNote.id;
 
                 $scope.notes.some(function (note, index) {
+                    var newNote, newActive;
+
                     if (note.id === hash) {
 
-                        let newNote = $scope.notes[index - 1] || $scope.notes[index + 1] || {},
-                            newActive = $document[0].getElementById(newNote.id);
+                        newNote = $scope.notes[index - 1] || $scope.notes[index + 1] || {},
+                        newActive = $document[0].getElementById(newNote.id);
 
                         if (newActive) {
                             newActive.classList.add('active');
