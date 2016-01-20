@@ -16,6 +16,23 @@
             $scope.edited = false;
             $scope.showModal = false;
 
+            $scope.hideModal = function ($event) {
+                $scope.showModal = !$event.target.classList.contains('overlay');
+            };
+
+            $scope.newNote = function () {
+                var currentActive = $document[0].getElementsByClassName('active')[0],
+                    editor = $document[0].getElementsByTagName('textarea')[0];
+
+                $scope.currentNote = {};
+
+                if (currentActive) {
+                    currentActive.classList.remove('active');
+                }
+
+                editor.focus();
+            };
+
             $scope.preSaveNote = function () {
                 if (!$scope.currentNote.title) {
                     $scope.showModal = true;
@@ -26,10 +43,6 @@
                 } else {
                     $scope.saveNote();
                 }
-            };
-
-            $scope.hideModal = function ($event) {
-                $scope.showModal = !$event.target.classList.contains('overlay');
             };
 
             $scope.saveNote = function () {
@@ -53,19 +66,6 @@
                     var newActive = $document[0].getElementById($scope.currentNote.id);
                     newActive.classList.add('active');
                 });
-            };
-
-            $scope.newNote = function () {
-                var currentActive = $document[0].getElementsByClassName('active')[0],
-                    editor = $document[0].getElementsByTagName('textarea')[0];
-
-                $scope.currentNote = {};
-
-                if (currentActive) {
-                    currentActive.classList.remove('active');
-                }
-
-                editor.focus();
             };
 
             $scope.openNote = function ($event) {
