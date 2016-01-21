@@ -92,7 +92,7 @@
 
                     if (note.id === hash) {
 
-                        newNote = $scope.notes[index - 1] || $scope.notes[index + 1] || {},
+                        newNote = $scope.notes[index - 1] || $scope.notes[index + 1] || {};
                         newActive = $document[0].getElementById(newNote.id);
 
                         if (newActive) {
