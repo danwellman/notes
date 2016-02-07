@@ -23,7 +23,7 @@ module.exports = function (grunt) {
 
     require('load-grunt-tasks')(grunt);
 
-    grunt.registerTask('scss', ['sass']);
+    grunt.registerTask('scss', ['sass:dist']);
     grunt.registerTask('lint', ['jshint']);
     grunt.registerTask('test', ['clean:coverage', 'karma']);
 
