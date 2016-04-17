@@ -22,7 +22,7 @@
             <aside>
                 <ul data-ng-if="notes.length">
                     <li data-ng-repeat="note in notes">
-                        <a href="javascript:void(0)" id="{{ note.id }}" data-ng-class="{ active: $index === 0 }" data-ng-click="openNote($event)">{{ note.title }}</a>
+                        <a href="javascript:void(0)" id="{{ note.id }}" data-ng-class="{ active: $index === 0 }" data-ng-click="openNote($event)" title="{{note.title}}">{{ note.title | truncate: 30 }}</a>
                     </li>
                 </ul>
 
@@ -50,5 +50,6 @@
     <script src="js/controllers/notes.js"></script>
     <script src="js/directives/enableSaveOnEdit.js"></script>
     <script src="js/directives/modal.js"></script>
+    <script src="js/filters/truncate.js"></script>
 </body>
 </html>
