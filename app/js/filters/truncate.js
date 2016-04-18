@@ -5,7 +5,7 @@
 
     function truncate() {
         return function (string, length) {
-            return (string.length > length) ? string.slice(0, length - 1) + '...' : string;
+            return (string.length > length) ? string.slice(0, length) + '...' : string;
         };
     }
 }());
