@@ -5,7 +5,7 @@
 
     describe('the Truncate filter', function () {
 
-        var truncateFilter, sandbox;
+        var truncateFilter;
 
         beforeEach(inject(function (_truncateFilter_) {
             truncateFilter = _truncateFilter_;
