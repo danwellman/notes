@@ -133,13 +133,19 @@ modal {
 
     .modal {
         width: 500px;
-        height: 36px;
+        min-height: 36px;
         padding: 20px;
         position: relative;
         left: calc(50% - 250px);
         top: calc(50% - 25px);
         background-color: #fff;
         box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    h2 {
+        margin-top: 0;
+        font-family: sans-serif;
+        font-size: 18px;
     }
 
     fieldset {
