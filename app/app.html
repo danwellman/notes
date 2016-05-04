@@ -15,7 +15,7 @@
                 <div class="toolbar">
                     <button id="save" data-ng-disabled="!edited" data-ng-click="preSaveNote()">Save note</button>
                     <button data-ng-click="newNote()">New note</button>
-                    <button data-ng-click="deleteNote($event)">Delete note</button>
+                    <button data-ng-click="preDeleteNote()">Delete note</button>
                 </div>
             </header>
 
@@ -36,7 +36,20 @@
             </main>
         </section>
 
-        <modal></modal>
+        <modal data-modal-title="Save Note" data-modal-id="save_modal">
+            <form>
+                <fieldset>
+                    <legend>Note Title form</legend>
+
+                    <input id="title" data-ng-model="currentNote.title" placeholder="Note title" />
+                    <button data-ng-click="saveNote()">Save</button>
+                </fieldset>
+            </form>
+        </modal>
+
+        <modal data-modal-title="Confirm" data-modal-id="confirm_delete" data-modal-type="prompt" data-on-confirm="handleConfirm(response)">
+            <p>Are you sure?</p>
+        </modal>
 
         <section data-ng-if="!localStorageSupported">
             <h1>Sorry, your browser does not support localStorage. Please upgrade your browser to use Notes</h1>
@@ -49,7 +62,7 @@
     <script src="js/services/uuid.js"></script>
     <script src="js/controllers/notes.js"></script>
     <script src="js/directives/enableSaveOnEdit.js"></script>
-    <script src="js/directives/modal.js"></script>
+    <script src="js/components/modal.js"></script>
     <script src="js/filters/truncate.js"></script>
 </body>
 </html>

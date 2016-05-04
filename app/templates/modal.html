@@ -1,11 +1,13 @@
-﻿<div class="overlay" data-ng-if="showModal" data-ng-click="hideModal($event)">
+﻿<div class="overlay" data-ng-if="modal.modalIsVisible" data-ng-click="modal.hideModal($event)">
     <div class="modal">
-        <form>
-            <fieldset>
-                <legend>Note Title form</legend>
+        <h2 data-ng-if="modal.modalTitle">{{ modal.modalTitle }}</h2>
+        <div data-ng-transclude></div>
 
-                <input id="title" data-ng-model="currentNote.title" placeholder="Note title" />
-                <button data-ng-click="saveNote()">Save</button>
+        <form data-ng-if="modal.modalType === 'prompt'">
+            <fieldset>
+                <legend>Confirm form</legend>
+                <button data-ng-click="modal.onConfirm({ response: true })">OK</button>
+                <button data-ng-click="modal.onConfirm({ response: false })">Cancel</button>
             </fieldset>
         </form>
     </div>

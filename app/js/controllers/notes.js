@@ -3,9 +3,9 @@
 
     angular.module('notes').controller('notesController', NotesController);
 
-    NotesController.$inject = ['$scope', '$document', '$timeout', 'localStorageService', 'uuid'];
+    NotesController.$inject = ['$rootScope', '$scope', '$document', '$timeout', 'localStorageService', 'uuid'];
 
-    function NotesController($scope, $document, $timeout, localStorageService, uuid) {
+    function NotesController($rootScope, $scope, $document, $timeout, localStorageService, uuid) {
 
         $scope.localStorageSupported = localStorageService.supportsStorage();
 
@@ -14,11 +14,11 @@
             $scope.currentNote = $scope.notes[0] || {};
 
             $scope.edited = false;
-            $scope.showModal = false;
 
             $scope.preSaveNote = function () {
                 if (!$scope.currentNote.title) {
-                    $scope.showModal = true;
+                    $rootScope.$broadcast('showmodal', { id: 'save_modal' });
+
                     $timeout(function () {
                         var field = $document[0].getElementById('title');
                         field.focus();
@@ -28,12 +28,8 @@
                 }
             };
 
-            $scope.hideModal = function ($event) {
-                $scope.showModal = !$event.target.classList.contains('overlay');
-            };
-
             $scope.saveNote = function () {
-                $scope.showModal = false;
+                $rootScope.$broadcast('hidemodal');
                 $scope.edited = false;
 
                 if (!$scope.currentNote.id) {
@@ -82,6 +78,16 @@
 
                 currentActive.classList.remove('active');
                 $event.target.classList.add('active');
+            };
+
+            $scope.preDeleteNote = function () {
+                $rootScope.$broadcast('showmodal', { id: 'confirm_delete' });
+            };
+
+            $scope.handleConfirm = function (response) {
+                if (response) {
+
+                }
             };
 
             $scope.deleteNote = function ($event) {
