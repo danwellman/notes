@@ -86,8 +86,10 @@
 
             $scope.handleConfirm = function (response) {
                 if (response) {
-
+                    $scope.deleteNote();
                 }
+
+                $rootScope.$broadcast('hidemodal');
             };
 
             $scope.deleteNote = function () {
