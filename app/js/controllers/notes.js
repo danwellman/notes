@@ -90,7 +90,7 @@
                 }
             };
 
-            $scope.deleteNote = function ($event) {
+            $scope.deleteNote = function () {
                 var hash = $scope.currentNote.id;
 
                 $scope.notes.some(function (note, index) {
