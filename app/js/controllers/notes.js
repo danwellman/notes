@@ -117,6 +117,11 @@
                 localStorageService.saveNotes($scope.notes);
             };
 
+            $scope.destroyModal = function () {
+                var modal = $document[0].getElementById('confirm');
+                modal.remove();
+            }
+
         }
 
     }

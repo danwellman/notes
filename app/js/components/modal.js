@@ -15,27 +15,31 @@
             var modal = this;
 
             modal.hideModal = function ($event) {
+                if (!$event.target) {
+                    $event.target = {
+                        classList: {
+                            contains: function () { return true; }
+                        }
+                    };
+                }
                 modal.modalIsVisible = !$event.target.classList.contains('overlay');
             };
 
-            modal.showModal = function () {
-                modal.modalIsVisible = true;
-            }
-
-            $scope.$on('showmodal', function ($event, data) {
+            modal.showModal = function ($event, data) {
                 if (data && data.id === modal.modalId) {
-                    modal.showModal();
+                    modal.modalIsVisible = true;
                 }
-            });
+            };
 
-            $scope.$on('hidemodal', function ($event) {
-                $event.target = {
-                    classList: {
-                        contains: function () { return true; }
-                    }
-                };
-                modal.hideModal($event);
-            });
+            modal.$onInit = function () {
+                $scope.$on('showmodal', modal.showModal);
+                $scope.$on('hidemodal', modal.hideModal);
+            };
+
+            modal.$onDestroy = function () {
+                $scope.$off('showmodal', modal.showModal);
+                $scope.$off('hidemodal', modal.hideModal);
+            }
         }]
     });
 }());
