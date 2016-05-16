@@ -35,11 +35,6 @@
                 $scope.$on('showmodal', modal.showModal);
                 $scope.$on('hidemodal', modal.hideModal);
             };
-
-            modal.$onDestroy = function () {
-                $scope.$off('showmodal', modal.showModal);
-                $scope.$off('hidemodal', modal.hideModal);
-            }
         }]
     });
 }());
